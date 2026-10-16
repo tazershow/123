@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1015">
+  <title>Car Tycoon — выпадение автомобилей</title>
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <a class="brand" href="#"><span class="brand-mark">CT</span><span>CAR <b>TYCOON</b><small>СОБЕРИ СВОЮ ЛЕГЕНДУ</small></span></a>
+      <div class="wallet"><span class="coin">₵</span><div><small>ТВОЙ БАЛАНС</small><strong id="balance">10 000 ₵</strong></div><button id="bonus-btn" class="bonus-btn">+ БОНУС</button></div>
+    </header>
+    <main>
+      <section class="stage">
+        <div class="stage-copy">
+          <p class="eyebrow">ОДНО НАЖАТИЕ — ОДНА МАШИНА</p>
+          <h1>КАКАЯ МАШИНА<br><em>ТВОЯ СЕГОДНЯ?</em></h1>
+          <p class="intro">Нажми кнопку и получи случайный автомобиль. Оставь его в коллекции или продай, чтобы попытать удачу снова.</p>
+          <div class="stage-actions"><button id="roll-btn" class="roll-btn"><span class="roll-icon">↗</span><span>ПОЛУЧИТЬ МАШИНУ</span><small>БЕСПЛАТНАЯ ПОПЫТКА</small></button></div>
+          <div class="chance-note"><span class="pulse"></span> Шанс на редкую машину всегда есть</div>
+        </div>
+        <div class="car-stage" id="car-stage">
+          <div class="stage-grid"></div><div class="stage-glow"></div><div class="stage-label">CAR DROP <span> / 001</span></div>
+          <div id="stage-car" class="car-illustration hero-car sedan" style="--car-color:#9baab5">
+            <div class="car-shadow"></div><div class="art-body"></div><div class="art-roof"></div><div class="art-glass"></div><div class="art-detail"></div><div class="art-wheel wheel-left"></div><div class="art-wheel wheel-right"></div><div class="art-light"></div>
+          </div>
+          <div class="stage-bottom"><span id="stage-hint">ТВОЙ СЛЕДУЮЩИЙ АВТОМОБИЛЬ</span><span>01 <i>—</i> 12</span></div>
+        </div>
+      </section>
+      <section class="result-bar" id="result-bar">
+        <div><small>ПОСЛЕДНЕЕ ВЫПАДЕНИЕ</small><strong id="last-car-name">Готов к первой попытке</strong><span id="last-car-rarity">Нажми «Получить машину»</span></div>
+        <div class="result-value"><small>СТОИМОСТЬ</small><strong id="last-car-value">—</strong></div>
+        <div class="result-actions"><button id="keep-btn" disabled>ОСТАВИТЬ</button><button id="sell-btn" disabled>ПРОДАТЬ</button></div>
+      </section>
+      <section class="stats">
+        <div class="stat-card"><small>МАШИН В ГАРАЖЕ</small><strong id="stat-cars">0</strong><span>Твоя коллекция</span></div>
+        <div class="stat-card"><small>ЦЕНА ГАРАЖА</small><strong id="stat-value">0 ₵</strong><span>Суммарная стоимость</span></div>
+        <div class="stat-card"><small>ЛУЧШАЯ РЕДКОСТЬ</small><strong id="stat-best">—</strong><span>Самый ценный трофей</span></div>
+        <div class="stat-card"><small>ПОПЫТОК</small><strong id="stat-rolls">0</strong><span>Машин выпало всего</span></div>
+      </section>
+      <section class="section">
+        <div class="section-heading"><div><p class="eyebrow">КОЛЛЕКЦИЯ</p><h2>Мой гараж <span id="garage-count" class="count-pill">0</span></h2></div><div class="garage-tools"><input id="search" type="search" placeholder="Найти автомобиль..." aria-label="Поиск"><select id="rarity-filter" aria-label="Фильтр редкости"><option value="all">Все редкости</option><option value="common">Обычная</option><option value="uncommon">Необычная</option><option value="rare">Редкая</option><option value="epic">Эпическая</option><option value="legendary">Легендарная</option><option value="mythic">Мифическая</option></select></div></div>
+        <div id="garage-grid" class="garage-grid"></div>
+        <div id="empty-garage" class="empty-state"><div class="empty-icon">◇</div><h3>Гараж пока пуст</h3><p>Получи первую машину и реши, оставить её или продать.</p></div>
+      </section>
+      <section class="section odds-section">
+        <div class="section-heading"><div><p class="eyebrow">ПРОЗРАЧНЫЕ ПРАВИЛА</p><h2>Шансы выпадения</h2></div><span class="section-note">Редкость влияет на стоимость машины.</span></div>
+        <div class="odds-grid" id="odds-grid"></div>
+      </section>
+      <footer><span>CAR TYCOON <b>PROTOTYPE 0.2</b></span><span>Сохранение работает в этом браузере</span><button id="reset-btn" class="text-btn">Сбросить прогресс</button></footer>
+    </main>
+  </div>
+  <div id="toast" class="toast"></div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
